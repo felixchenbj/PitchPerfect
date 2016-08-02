@@ -51,7 +51,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // start the timer
         recordingTimer = NSTimer( timeInterval: 0.1, target: self, selector: #selector(RecordSoundsViewController.updateTimerUI), userInfo: nil, repeats: true)
         
-         NSRunLoop.mainRunLoop().addTimer(self.recordingTimer!, forMode: NSDefaultRunLoopMode)
+         NSRunLoop.mainRunLoop().addTimer(recordingTimer!, forMode: NSDefaultRunLoopMode)
         
         recordTimerLabel.hidden = false
         
@@ -119,7 +119,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         print("Saving recording")
         
         if flag {
-            self.performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+            performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
         } else {
             print("Saving of recording failed")
         }
